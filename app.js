@@ -15,6 +15,18 @@ const app = React.createElement(PetDetailPage, null)
 
 ReactDOM.render(app, main);
 
+(async () => {
+    const url = 'https://polar-beach-08187.herokuapp.com/api/pets/2';
+    const response = await fetch(url);
+    if (response.ok) {
+        const pet = await response.json();
+        console.log(pet);
+
+        const app = React.createElement(PetDetailPage, { pet });
+        ReactDOM.render(app, target);
+    }
+})();
+
 
 
 
